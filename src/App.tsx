@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { TransactionsProvider } from './TransactionsContext';
+import { TransactionsProvider } from './hooks/useTransactions';
 
 import { GlobalStyle } from "./styles/global";
 
