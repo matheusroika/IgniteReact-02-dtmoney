@@ -24,18 +24,23 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
 
   const [title, setTitle] = useState('')
   const [amount, setAmount] = useState('')
-  const [type, setType] = useState<string>()
+  const [type, setType] = useState('')
   const [category, setCategory] = useState('')
 
-  function handleCreateNewTransaction(event: FormEvent) {
+  async function handleCreateNewTransaction(event: FormEvent) {
     event.preventDefault()
 
-    createTransaction({
+    await createTransaction({
       title,
       amount: Number(amount),
       category,
-      type: type as string,
+      type,
     })
+
+     setTitle('')
+     setAmount('')
+     setType('')
+     setCategory('')
   }
 
   return (
