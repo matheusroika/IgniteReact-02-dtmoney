@@ -81,7 +81,7 @@ export const RadioBox = styled.button<RadioBoxProps>`
   transition: border-color 0.2s, background 0.2s;
 
   &:hover {
-    border-color: #acacac;
+    border: 1px solid #acacac;
   }
 
   img {
