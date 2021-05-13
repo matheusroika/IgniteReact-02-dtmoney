@@ -1,6 +1,6 @@
 import { useTransactions } from "../../hooks/useTransactions";
 
-import { Container } from "./styles";
+import { Container, Item } from "./styles";
 
 import incomeImg from '../../assets/income.svg'
 import outcomeImg from '../../assets/outcome.svg'
@@ -27,23 +27,23 @@ export function Summary() {
 
   return (
     <Container>
-      <div>
+      <Item>
         <header>
           <p>Entradas</p>
           <img src={incomeImg} alt="Entradas" />
         </header>
         <span>R$ <strong>{Intl.NumberFormat('pt-BR').format(summary.deposits)}</strong>,00</span>
-      </div>
+      </Item>
 
-      <div>
+      <Item>
         <header>
           <p>Saídas</p>
           <img src={outcomeImg} alt="Saídas" />
         </header>
         <span>R$ <strong>{Intl.NumberFormat('pt-BR').format(summary.withdraws)}</strong>,00</span>
-      </div>
+      </Item>
 
-      <div>
+      <Item isNegative={summary.total < 0}>
         <header>
           <p>Total</p>
           <img src={totalImg} alt="Total" />
@@ -52,7 +52,7 @@ export function Summary() {
           <strong> {Intl.NumberFormat('pt-BR').format(Math.abs(summary.total))}</strong>
           ,00
         </span>
-      </div>
+      </Item>
     </Container>
   )
 }

@@ -5,32 +5,36 @@ export const Container = styled.div`
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   margin-top: -7rem;
+`
 
-  div {
-    background: var(--shape);
-    padding: 1.5rem 2rem;
-    border-radius: 0.25rem;
-    color: var(--text-title);
+interface ItemProps {
+  isNegative?: boolean;
+}
 
-    &:last-child {
-      background: var(--green);
-      color: #FFF;
-    }
+export const Item = styled.div<ItemProps>`
+  background: var(--shape);
+  padding: 1.5rem 2rem;
+  border-radius: 0.25rem;
+  color: var(--text-title);
 
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+  &:last-child {
+    background: ${({ isNegative }) => isNegative ? 'var(--red)' : 'var(--green)'};
+    color: #FFF;
+  }
 
-    span {
-      display: inline-block;
-      margin-top: 1rem;
-      font-size: 2rem;
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-      strong {
-        font-weight: 500;
-      }
+  span {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 2rem;
+
+    strong {
+      font-weight: 500;
     }
   }
 `
